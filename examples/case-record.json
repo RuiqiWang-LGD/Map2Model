@@ -1,0 +1,11 @@
+{
+  "family_id": "EF005",
+  "cause_key": "roof_ground_confusion",
+  "remedy_key": "source_axis_rebuild",
+  "check_key": "full_building_triage_and_disposition",
+  "condition_key": "own_axis_l_shape",
+  "new_information": "",
+  "evidence_hashes": [],
+  "status": "pending",
+  "note": "模板：填入实际证据哈希和观察，不要把模板当作已发生案例；无新结构时复用既有变体。"
+}

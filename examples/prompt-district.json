@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "source_image": "source.jpg",
+  "image_type": "oblique",
+  "output_scope": "原图完整范围",
+  "detail_level": "保留各级有效道路、水系、大片区及可信大型建筑；难辨小建筑仅作背景片区",
+  "keep": [],
+  "omit": [],
+  "image_roles": [],
+  "notes": [],
+  "inferences": [],
+  "modules": [],
+  "scale": {
+    "status": "relative"
+  },
+  "output_variant": "existing_condition",
+  "processing_mode": "district_structure",
+  "mode_reason": "示例值；实际项目需先查看源图，以用途、范围和可辨程度重新判断"
+}

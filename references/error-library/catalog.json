@@ -1,0 +1,1307 @@
+{
+  "schema_version": 1,
+  "library_version": "0.8.1",
+  "families": [
+    {
+      "id": "EF001",
+      "title": "碎地块与细缝通道",
+      "tags": [
+        "碎面",
+        "细缝",
+        "三角",
+        "小地块",
+        "封面",
+        "净宽"
+      ],
+      "cause_key": "contour_as_surface",
+      "remedy_key": "road_first_merge_fragments",
+      "check_key": "raw_faces_and_clearance",
+      "detail": "cases/EF001.md",
+      "rules": [
+        "region-face-check.md",
+        "su-plan-contract.md"
+      ],
+      "variants": [
+        {
+          "id": "EF001-A",
+          "condition_key": "dense_office_block",
+          "new_information": "第三个场景的街坊：旧版同面成立但净宽检查失败，33 处碎面/短边候选；局部修后同一合同通过，范围外几何保持。实际软件内封面仍待复测。",
+          "status": "geometry_verified",
+          "native_sketchup": "not_run",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-11",
+          "evidence_kind": "actual_geometry",
+          "figures": [
+            {
+              "path": "figures/block_fragments.png",
+              "sha256": "98e7b0fc72dc6a769023ebd41d72cc04669b27ebfa06387c18372b64c7110d84",
+              "bytes": 13788,
+              "kind": "actual_cad_before_after",
+              "before_sha256": "b95f1729902acf8c6f49d85fd60ae3b45c654fe7e95b0dbb36f6a03b88452467",
+              "after_sha256": "0798a03456612bcf3b37c46103dbb06b44b1703cf61dd8885fb008a730ef8480",
+              "caption": "实际历史 CAD 的局部重绘，左右同一裁剪范围与尺度；不含底图，不是新修复或原生 SU 截图。"
+            }
+          ],
+          "evidence_hashes": [
+            "b95f1729902acf8c6f49d85fd60ae3b45c654fe7e95b0dbb36f6a03b88452467",
+            "0798a03456612bcf3b37c46103dbb06b44b1703cf61dd8885fb008a730ef8480"
+          ],
+          "cause_key": "contour_as_surface",
+          "remedy_key": "road_first_merge_fragments",
+          "check_key": "raw_faces_and_clearance"
+        }
+      ]
+    },
+    {
+      "id": "EF002",
+      "title": "全局探针不能代替局部覆盖",
+      "tags": [
+        "漏检",
+        "覆盖",
+        "候选",
+        "主干路",
+        "局部",
+        "内部步道",
+        "双侧",
+        "法向宽度",
+        "转弯",
+        "端部",
+        "平台",
+        "封口"
+      ],
+      "cause_key": "sparse_probe_coverage",
+      "remedy_key": "source_region_inventory",
+      "check_key": "coverage_and_local_replay",
+      "detail": "cases/EF002.md",
+      "rules": [
+        "building-regularization.md",
+        "acceptance.md",
+        "site-detail-checks.md"
+      ],
+      "variants": [
+        {
+          "id": "EF002-A",
+          "condition_key": "global_pass_local_failure",
+          "new_information": "第三个场景全图线网通过，但街坊内部未覆盖；新增局部检查在原文件复现失败。",
+          "status": "geometry_verified",
+          "native_sketchup": "not_run",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-11",
+          "evidence_kind": "actual_geometry",
+          "figures": [
+            {
+              "path": "figures/block_fragments.png",
+              "sha256": "98e7b0fc72dc6a769023ebd41d72cc04669b27ebfa06387c18372b64c7110d84",
+              "bytes": 13788,
+              "kind": "actual_cad_before_after",
+              "before_sha256": "b95f1729902acf8c6f49d85fd60ae3b45c654fe7e95b0dbb36f6a03b88452467",
+              "after_sha256": "0798a03456612bcf3b37c46103dbb06b44b1703cf61dd8885fb008a730ef8480",
+              "caption": "实际历史 CAD 的局部重绘，左右同一裁剪范围与尺度；不含底图，不是新修复或原生 SU 截图。"
+            }
+          ],
+          "evidence_hashes": [
+            "b95f1729902acf8c6f49d85fd60ae3b45c654fe7e95b0dbb36f6a03b88452467",
+            "0798a03456612bcf3b37c46103dbb06b44b1703cf61dd8885fb008a730ef8480"
+          ],
+          "cause_key": "sparse_probe_coverage",
+          "remedy_key": "source_region_inventory",
+          "check_key": "coverage_and_local_replay"
+        },
+        {
+          "id": "EF002-B",
+          "condition_key": "recurrent_small_buildings",
+          "new_information": "用户再次指出其他小建筑形态夸张。本次只归档规则和待处理问题，没有修图，也没有给这些楼补造修改后图。",
+          "status": "pending",
+          "native_sketchup": "not_run",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-11",
+          "evidence_kind": "user_feedback",
+          "figures": [],
+          "evidence_hashes": [],
+          "cause_key": "sparse_probe_coverage",
+          "remedy_key": "source_region_inventory",
+          "check_key": "coverage_and_local_replay"
+        },
+        {
+          "id": "EF002-C",
+          "condition_key": "small_site_internal_paths",
+          "cause_key": "sparse_probe_coverage",
+          "remedy_key": "per_segment_ground_edge_rebuild",
+          "check_key": "both_edges_width_turn_and_landings",
+          "new_information": "新增内部步道逐段覆盖；不同轴向分别判读，修复构造父矩形造成的假封口。道路10项旧9失败、新10通过；有限采样及视觉复核不构成精确全边测量。",
+          "status": "geometry_verified",
+          "user_acceptance": "pending",
+          "native_sketchup": "not_run",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-11",
+          "evidence_kind": "actual_geometry",
+          "figures": [
+            {
+              "path": "figures/internal_path_landing.png",
+              "sha256": "bfb2ebb41253339bb21137886e1a75a1b5ec11e13e1cd2795be1678dab8bafb8",
+              "bytes": 21885,
+              "kind": "actual_cad_before_after",
+              "before_sha256": "99f2d06389434aff5fe0341d66fe0590a2aa73ce2b7871e2d99b4ddeb2e55096",
+              "after_sha256": "30bad944669f57cd74f73467ee3cc93630b465c73e1ba72272d669fb545bbc90",
+              "caption": "实际旧 CAD 与新 DWG 回读线网的局部重绘；左右同裁剪、同尺度，不含底图。几何对照不证明遮挡边精确或 SU UI 已测试。"
+            },
+            {
+              "path": "figures/internal_path_turn.png",
+              "sha256": "82dbe74efb4ef7f19d3fcd593f114382dd4a08097d10d10cf49e2c5f71550890",
+              "bytes": 21694,
+              "kind": "actual_cad_before_after",
+              "before_sha256": "99f2d06389434aff5fe0341d66fe0590a2aa73ce2b7871e2d99b4ddeb2e55096",
+              "after_sha256": "30bad944669f57cd74f73467ee3cc93630b465c73e1ba72272d669fb545bbc90",
+              "caption": "实际旧 CAD 与新 DWG 回读线网的局部重绘；左右同裁剪、同尺度，不含底图。几何对照不证明遮挡边精确或 SU UI 已测试。"
+            }
+          ],
+          "evidence_hashes": [
+            "99f2d06389434aff5fe0341d66fe0590a2aa73ce2b7871e2d99b4ddeb2e55096",
+            "30bad944669f57cd74f73467ee3cc93630b465c73e1ba72272d669fb545bbc90"
+          ],
+          "status_history": [
+            {
+              "stage": "earlier_local_conclusion",
+              "status": "superseded",
+              "reason": "用户反馈重开相关对象与接边；外环和建筑保留已核验基线。"
+            },
+            {
+              "stage": "corrected_roundtrip",
+              "status": "geometry_verified",
+              "reason": "同一独立源侧采样检查复现旧失败并在新回读通过；用户验收 pending，SU UI not_run。"
+            }
+          ]
+        },
+        {
+          "cause_key": "sparse_probe_coverage",
+          "remedy_key": "source_region_inventory",
+          "check_key": "coverage_and_local_replay",
+          "condition_key": "junction_neighbor_objects_after_detail_pass",
+          "new_information": "既有内部步道与绿地检查通过，仍漏掉相邻路口两侧路缘及画幅边建筑。按已存在规则逐对象重开，旧7项5失败、修订7项通过；隐藏绿地边保持pending。",
+          "evidence_hashes": [
+            "30bad944669f57cd74f73467ee3cc93630b465c73e1ba72272d669fb545bbc90",
+            "6c5c5ed97308763bd385422865e4f7d26519664b56815f1b0a94fd081573feb9"
+          ],
+          "status": "geometry_verified",
+          "user_acceptance": "pending",
+          "native_sketchup": "not_run",
+          "id": "EF002-D",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-11",
+          "evidence_kind": "actual_geometry",
+          "figures": [
+            {
+              "path": "figures/corner_coverage.png",
+              "sha256": "257763194a12788e344a9d10549c3bae28d4c7b4822cf47a01f8d24550d5d78f",
+              "bytes": 17198,
+              "kind": "actual_cad_before_after",
+              "before_sha256": "30bad944669f57cd74f73467ee3cc93630b465c73e1ba72272d669fb545bbc90",
+              "after_sha256": "6c5c5ed97308763bd385422865e4f7d26519664b56815f1b0a94fd081573feb9",
+              "caption": "实际旧/新DWG回读局部重绘，同范围同尺度，无原图；既有规则应用验证，用户未验收，遮挡边仍有推断。"
+            }
+          ],
+          "status_history": [
+            {
+              "stage": "prior_corner_conclusion",
+              "status": "superseded",
+              "reason": "用户反馈重新打开相关道路、地块和建筑接边；原内部路径检查未被推翻。"
+            },
+            {
+              "stage": "revised_roundtrip",
+              "status": "geometry_verified",
+              "reason": "同7项检查旧5失败、新全部通过；12项旧细节检查仍通过。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EF003",
+      "title": "过度规则化吞掉真实形体",
+      "tags": [
+        "矩形",
+        "缩楼",
+        "L形",
+        "U形",
+        "正交",
+        "曲线"
+      ],
+      "cause_key": "blanket_regularization",
+      "remedy_key": "own_axis_source_fit",
+      "check_key": "shape_and_access_regression",
+      "detail": "cases/EF003.md",
+      "rules": [
+        "building-regularization.md"
+      ],
+      "variants": [
+        {
+          "id": "EF003-A",
+          "condition_key": "legitimate_l_u_roofs",
+          "new_information": "既有建筑筛选回归包含旋转矩形、正常 L/U 形与原生曲线待查，要求保留合理结构。",
+          "status": "historical_record",
+          "native_sketchup": "not_run",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-11",
+          "evidence_kind": "historical_record",
+          "figures": [],
+          "evidence_hashes": [],
+          "cause_key": "blanket_regularization",
+          "remedy_key": "own_axis_source_fit",
+          "check_key": "shape_and_access_regression"
+        }
+      ]
+    },
+    {
+      "id": "EF004",
+      "title": "混淆脚本通过与实际 SU 验收",
+      "tags": [
+        "SU",
+        "验收",
+        "pass",
+        "封面插件",
+        "回读",
+        "推拉联动",
+        "部分认可",
+        "独立体块",
+        "面环",
+        "内孔",
+        "完整线网",
+        "直接成面"
+      ],
+      "cause_key": "validation_scope_conflation",
+      "remedy_key": "separate_evidence_states",
+      "check_key": "per_version_validation",
+      "detail": "cases/EF004.md",
+      "rules": [
+        "acceptance.md",
+        "hierarchy-and-regular-geometry.md",
+        "low-clarity-case-lessons.md"
+      ],
+      "variants": [
+        {
+          "id": "EF004-A",
+          "condition_key": "native_data_vs_ui",
+          "new_information": "第二个场景有原生 SKP 文件数据验证；第三个场景仅有 CAD 与区域检查。两者不得合并成通用 SU 通过结论。",
+          "status": "historical_record",
+          "native_sketchup": "version_specific",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-11",
+          "evidence_kind": "historical_record",
+          "figures": [],
+          "evidence_hashes": [],
+          "cause_key": "validation_scope_conflation",
+          "remedy_key": "separate_evidence_states",
+          "check_key": "per_version_validation"
+        },
+        {
+          "id": "EF004-B",
+          "condition_key": "flat_cad_pass_user_pushpull_coupling",
+          "cause_key": "native_operation_cause_unknown",
+          "remedy_key": "inspect_actual_model_before_repair",
+          "check_key": "separate_geometry_visual_and_operation_acceptance",
+          "new_information": "CAD同异面及回读通过后用户仍报告破面和推拉联动；无当前模型，未定位原因。仅保留部分外观/方法认可，独立操作未验收。",
+          "status": "pending",
+          "user_acceptance": "reported_failure",
+          "native_sketchup": "not_run_by_agent",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-11",
+          "evidence_kind": "user_feedback",
+          "figures": [],
+          "evidence_hashes": [
+            "36b4f118f576805e137a3302659b5d0b5b533662ddbb6c4d2c296f1faeb989ee",
+            "ff18dd47074a44ecf0cf306b3bcfdc05784ffda0cac327ae8aa906809c40d303"
+          ],
+          "cause_status": "unknown",
+          "remedy_status": "unverified",
+          "accepted_scope": [
+            "partial_visual_direction",
+            "modeling_method"
+          ],
+          "unresolved_scope": [
+            "user_model_face_relations",
+            "independent_push_pull"
+          ]
+        },
+        {
+          "id": "EF004-C",
+          "condition_key": "complete_cad_network_invalid_native_road_inner_loops",
+          "cause_key": "native_face_loop_mismatch_with_preserved_edge_network",
+          "remedy_key": "explicit_outer_inner_loops_shared_geometry_native_write",
+          "check_key": "saved_native_face_region_bijection_edge_incidence_and_overlap",
+          "new_information": "CAD和实际SKP边无重叠、端点吻合；SKP线网可恢复902区域但主体895面，主道路错误内环混入河湾、地块及5段内路。确定外环/内孔直接生成同源SKP后，902面及6735边回读匹配，获用户效果认可。首次触发环节未确定，不能归因为导入或插件。",
+          "status": "geometry_verified",
+          "native_sketchup": "saved_file_face_and_edge_readback_verified",
+          "user_acceptance": "result_and_method_accepted",
+          "method_acceptance": "confirmed",
+          "cause_status": "native_loop_defect_verified; initiating_operation_unknown",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-13",
+          "evidence_kind": "native_before_after_and_user_result_acceptance",
+          "figures": [],
+          "evidence_hashes": [
+            "cd245ea7d7a43d645df7d42d33bde9c8c2016a0da29169014188493ddaf3bde8",
+            "6fe07871971136015c2def0adc6b94bd3fe75b8091c81347c35dd674bac576db",
+            "3416b341e0056bdc1ee76f7fe25958c5e1a343930b7c16d0f8247c039034593d"
+          ],
+          "accepted_scope": [
+            "case_face_creation_result",
+            "saved_native_loop_and_edge_geometry"
+          ],
+          "unresolved_scope": [
+            "first_failing_operation",
+            "GUI_edit_pushpull",
+            "unseen_scene_transfer"
+          ],
+          "delivery_policy": "optional_for_authorized_SU_tasks; default_CAD_delivery_unchanged"
+        }
+      ]
+    },
+    {
+      "id": "EF005",
+      "title": "异常建筑碎角、拖尾和铺装串楼",
+      "tags": [
+        "建筑",
+        "畸形",
+        "夸张",
+        "碎角",
+        "尖刺",
+        "拖尾",
+        "铺装",
+        "小建筑",
+        "阴影",
+        "明暗",
+        "漏识别",
+        "建筑截短",
+        "建筑误判铺装",
+        "手绘批注",
+        "大致边界",
+        "地面纹样",
+        "星形",
+        "亭棚",
+        "运动场"
+      ],
+      "cause_key": "roof_ground_confusion",
+      "remedy_key": "source_axis_rebuild",
+      "check_key": "full_building_triage_and_disposition",
+      "detail": "cases/EF005.md",
+      "rules": [
+        "building-regularization.md",
+        "acceptance.md"
+      ],
+      "variants": [
+        {
+          "id": "EF005-A",
+          "condition_key": "own_axis_l_shape",
+          "new_information": "第一个场景：清楚的 L 形屋面边缘夸张，按自身轴向整理翼部；历史修复有几何及 DWG 回读证据。",
+          "status": "geometry_verified",
+          "native_sketchup": "not_run",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-11",
+          "evidence_kind": "actual_geometry",
+          "figures": [
+            {
+              "path": "figures/building_axes.png",
+              "sha256": "90b028d0c60ea65c84d117b7b8576566cda4454ad417fbb21290b8a73d020285",
+              "bytes": 7399,
+              "kind": "actual_cad_before_after",
+              "before_sha256": "aab8f1d18bdb7edfce1b3596ef81a9bd70feb770f0cb1e387a9af683936b4950",
+              "after_sha256": "7a5e26a713408e44c2c52507b3afeb27d09645210e5d15c2b3feb7ed3ef1833f",
+              "caption": "实际历史 CAD 的局部重绘，左右同一裁剪范围与尺度；不含底图，不是新修复或原生 SU 截图。"
+            }
+          ],
+          "evidence_hashes": [
+            "aab8f1d18bdb7edfce1b3596ef81a9bd70feb770f0cb1e387a9af683936b4950",
+            "7a5e26a713408e44c2c52507b3afeb27d09645210e5d15c2b3feb7ed3ef1833f"
+          ],
+          "cause_key": "roof_ground_confusion",
+          "remedy_key": "source_axis_rebuild",
+          "check_key": "full_building_triage_and_disposition"
+        },
+        {
+          "id": "EF005-B",
+          "condition_key": "ground_linked_roofs",
+          "new_information": "第一个场景的不同变体：无盖地面把南侧单体和 U 形楼串联。拆开单体并保留院落，比单纯减点多了类别与连接修正。",
+          "status": "geometry_verified",
+          "native_sketchup": "not_run",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-11",
+          "evidence_kind": "actual_geometry",
+          "figures": [
+            {
+              "path": "figures/building_ground_link.png",
+              "sha256": "234eaaf5808d0f9428588b24cf8bf606276335acfc18437687d359961e69231c",
+              "bytes": 7783,
+              "kind": "actual_cad_before_after",
+              "before_sha256": "aab8f1d18bdb7edfce1b3596ef81a9bd70feb770f0cb1e387a9af683936b4950",
+              "after_sha256": "7a5e26a713408e44c2c52507b3afeb27d09645210e5d15c2b3feb7ed3ef1833f",
+              "caption": "实际历史 CAD 的局部重绘，左右同一裁剪范围与尺度；不含底图，不是新修复或原生 SU 截图。"
+            }
+          ],
+          "evidence_hashes": [
+            "aab8f1d18bdb7edfce1b3596ef81a9bd70feb770f0cb1e387a9af683936b4950",
+            "7a5e26a713408e44c2c52507b3afeb27d09645210e5d15c2b3feb7ed3ef1833f"
+          ],
+          "cause_key": "roof_ground_confusion",
+          "remedy_key": "source_axis_rebuild",
+          "check_key": "full_building_triage_and_disposition"
+        },
+        {
+          "id": "EF005-C",
+          "condition_key": "repeated_in_later_scenes",
+          "new_information": "第二个场景历史记录还发现建筑混入相邻绿地楔形；第三个场景又收到小建筑形态夸张反馈。重复说明执行覆盖不足。第三个场景相关异常目前尚未逐栋定位和修复。",
+          "status": "pending",
+          "native_sketchup": "not_run",
+          "occurrence_count": 2,
+          "last_seen": "2026-09-11",
+          "evidence_kind": "user_feedback",
+          "figures": [],
+          "evidence_hashes": [],
+          "cause_key": "roof_ground_confusion",
+          "remedy_key": "source_axis_rebuild",
+          "check_key": "full_building_triage_and_disposition"
+        },
+        {
+          "id": "EF005-D",
+          "condition_key": "building_crosses_shadow_boundary",
+          "cause_key": "shadow_building_ground_misclassification",
+          "remedy_key": "trace_structure_across_light_shadow_then_local_rebuild",
+          "check_key": "missing_footprint_and_neighbor_access_regression",
+          "new_information": "阴影条件下，建筑范围被漏判为铺装，而非铺装被并入建筑。用户给出近似边界；图像局部修复纳入北侧漏识别范围并调整西边。阴影成因是用户提出、源图支持的推测，不是已证明的模型内部原因。 首次返修又误把手绘斜折当真实轮廓；用户纠正后按源图轴向改为规整外环。批注包含的大尺度弯折也需结构证据，不仅是去掉抖动。",
+          "status": "historical_record",
+          "cause_status": "user_hypothesis_supported_not_proven",
+          "user_acceptance": "basically_accepted_scoped",
+          "native_sketchup": "not_run",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-12",
+          "evidence_kind": "user_feedback_and_generated_image_revision",
+          "figures": [],
+          "evidence_hashes": [
+            "3b744b58e07d85350a5931709ccdd6da358e12ccaefb0b65548142e745411e4e",
+            "29ccd739d5d7cdb2957206935cc9a8be9ca9018c4fda89355fe5c9f051daa978",
+            "c38d5b37efb6842ac94543e922c700415ac3d691df8a6ddec0f05b98e9dbf161",
+            "1341a83a92ccda2553e076aa28683823ac0275cf390445499eeb12a8aea84a57"
+          ],
+          "image_review": "local_visual_check_only",
+          "geometry_validation": "not_run",
+          "status_history": [
+            {
+              "stage": "user_report",
+              "status": "pending",
+              "reason": "用户指出目标建筑漏识别并提供近似边界，其余外观获得概括性认可。"
+            },
+            {
+              "stage": "first_local_image_revision",
+              "status": "superseded",
+              "reason": "用户指出不应将近似手绘斜折带入标准建筑轮廓。"
+            },
+            {
+              "stage": "source_structure_regularization",
+              "status": "historical_record",
+              "reason": "保留补回范围、按源图轴向规整主体；视觉复核已执行，修正版用户验收pending，CAD/SU未测。"
+            },
+            {
+              "stage": "user_basic_acceptance",
+              "date": "2026-09-12",
+              "previous_user_acceptance": "prior_general_visual_acceptance_except_target; revised_target_pending",
+              "status": "historical_record",
+              "reason": "用户在第一张路口场景修订后表示该场景基本通过；限图像视觉阶段，不补作 CAD/SU 验证。"
+            }
+          ],
+          "accepted_scope": "用户在第一张路口场景修订后表示该场景基本通过；限图像视觉阶段，不补作 CAD/SU 验证。"
+        },
+        {
+          "id": "EF005-E",
+          "condition_key": "plaza_ground_motif_and_site_surface",
+          "cause_key": "ground_decoration_or_platform_as_building",
+          "remedy_key": "classify_roof_ground_and_landscape_separately",
+          "check_key": "source_object_inventory_and_building_dispositions",
+          "new_information": "星形地面纹样、运动场和硬质平台须与真实亭棚分开；删除无屋盖依据的建筑分类，不能用简单矩形形态证明它是建筑。",
+          "status": "historical_record",
+          "native_sketchup": "not_run",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-12",
+          "evidence_kind": "project_review_record",
+          "figures": [],
+          "evidence_hashes": [
+            "e80314352e462dea5c86ad65e8191fc2b9ac98d13ed94d830167d6b76c876f37",
+            "02a5cb7dcb2907c5dadf192c2083c6fd926b5ac377769f4ffb60e799119a31cf",
+            "5ab3106b0ce5da0c01a30218aadf2a83b3f45fbdfdf42bc47a0bca5f5b61c35c",
+            "9098109be31de4066a00edfc1eea5287f228c2d125f628ab4d56528b4551d872"
+          ],
+          "user_acceptance": "basically_accepted_scoped",
+          "accepted_scope": "本城市路口 v05 前期平面整理基本通过；遮挡推定及相对尺度限制保留。",
+          "status_history": [
+            {
+              "stage": "v04",
+              "status": "superseded",
+              "reason": "该对象判断已被用户反馈或内部原图复核重开。"
+            },
+            {
+              "stage": "v05",
+              "status": "historical_record",
+              "reason": "修订及相应检查完成，用户本轮表示这一步基本通过；SU 未执行。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EF006",
+      "title": "桥面被低优先边线切碎",
+      "tags": [
+        "桥",
+        "道路",
+        "穿线",
+        "跨层",
+        "断路"
+      ],
+      "cause_key": "visible_deck_intrusion",
+      "remedy_key": "clip_lower_priority_inside_deck",
+      "check_key": "all_layer_deck_and_width",
+      "detail": "cases/EF006.md",
+      "rules": [
+        "su-plan-contract.md",
+        "shared-rules.md"
+      ],
+      "variants": [
+        {
+          "id": "EF006-A",
+          "condition_key": "two_bridges_flat_plan",
+          "new_information": "第二个场景：旧图两座主桥内干扰线合计约 1510 相对单位，修后为零；11 个主路观察点同面、六处宽度通过。原生文件数据检验有记录，桌面导入与鼠标选面未测。",
+          "status": "geometry_verified",
+          "native_sketchup": "native_data_verified",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-11",
+          "evidence_kind": "actual_geometry",
+          "figures": [
+            {
+              "path": "figures/bridge_intrusion.png",
+              "sha256": "144556b1d9911b2366a65dd11253a9c7ab01b9cb537ffd53c83128a5dc8af4ad",
+              "bytes": 8010,
+              "kind": "actual_cad_before_after",
+              "before_sha256": "9153ab045620573fb181d002c86106d477b53b57dfb8ac0db81d1a02a5caaff6",
+              "after_sha256": "3f2e8dbe2228996083099f2183004d66ca879ea41468d06c797bb3aa3076e565",
+              "caption": "实际历史 CAD 的局部重绘，左右同一裁剪范围与尺度；不含底图，不是新修复或原生 SU 截图。"
+            }
+          ],
+          "evidence_hashes": [
+            "9153ab045620573fb181d002c86106d477b53b57dfb8ac0db81d1a02a5caaff6",
+            "3f2e8dbe2228996083099f2183004d66ca879ea41468d06c797bb3aa3076e565"
+          ],
+          "cause_key": "visible_deck_intrusion",
+          "remedy_key": "clip_lower_priority_inside_deck",
+          "check_key": "all_layer_deck_and_width"
+        }
+      ]
+    },
+    {
+      "id": "EF007",
+      "title": "边界多线夹出无用途窄带",
+      "tags": [
+        "岸线",
+        "水陆",
+        "平行线",
+        "窄带",
+        "水花",
+        "隔离带",
+        "分隔带",
+        "双层",
+        "内圈",
+        "种植内缘"
+      ],
+      "cause_key": "redundant_shore_bands",
+      "remedy_key": "single_functional_boundary",
+      "check_key": "source_transverse_count",
+      "detail": "cases/EF007.md",
+      "rules": [
+        "su-plan-contract.md",
+        "shared-rules.md"
+      ],
+      "variants": [
+        {
+          "id": "EF007-A",
+          "condition_key": "island_shore",
+          "new_information": "第二个场景：指定西岛岸线横断从七条边变为一条；实际旧新 CAD 局部对照，不是整幅影像。",
+          "status": "geometry_verified",
+          "native_sketchup": "native_data_verified",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-11",
+          "evidence_kind": "actual_geometry",
+          "figures": [
+            {
+              "path": "figures/shore_multiplicity.png",
+              "sha256": "c90c66f36ac337d923ad181f81d0fdfb37825b6a5deb16a1893e2859f6937400",
+              "bytes": 8267,
+              "kind": "actual_cad_before_after",
+              "before_sha256": "9153ab045620573fb181d002c86106d477b53b57dfb8ac0db81d1a02a5caaff6",
+              "after_sha256": "3f2e8dbe2228996083099f2183004d66ca879ea41468d06c797bb3aa3076e565",
+              "caption": "实际历史 CAD 的局部重绘，左右同一裁剪范围与尺度；不含底图，不是新修复或原生 SU 截图。"
+            }
+          ],
+          "evidence_hashes": [
+            "9153ab045620573fb181d002c86106d477b53b57dfb8ac0db81d1a02a5caaff6",
+            "3f2e8dbe2228996083099f2183004d66ca879ea41468d06c797bb3aa3076e565"
+          ],
+          "cause_key": "redundant_shore_bands",
+          "remedy_key": "single_functional_boundary",
+          "check_key": "source_transverse_count"
+        },
+        {
+          "id": "EF007-B",
+          "condition_key": "single_median_with_redundant_planting_loop",
+          "cause_key": "nonfunctional_inner_kerb_as_surface",
+          "remedy_key": "retain_one_functional_median_outline",
+          "check_key": "median_raw_face_and_internal_edge_absence",
+          "new_information": "真实分隔带外缘正确，但再加种植内环切出双层窄面；应按模型用途归并，不能把岸界简化规则机械局限于水边。",
+          "status": "geometry_verified",
+          "native_sketchup": "not_run",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-12",
+          "evidence_kind": "actual_geometry",
+          "figures": [
+            {
+              "path": "figures/median_single_surface.png",
+              "sha256": "ba7797068cee3737621c4735bee63966928be3ff6cb719951c901038156887cd",
+              "bytes": 5493,
+              "kind": "actual_cad_before_after",
+              "before_sha256": "e80314352e462dea5c86ad65e8191fc2b9ac98d13ed94d830167d6b76c876f37",
+              "after_sha256": "02a5cb7dcb2907c5dadf192c2083c6fd926b5ac377769f4ffb60e799119a31cf",
+              "caption": "实际旧 CAD 与修订 DWG 回读的局部重绘，同一范围和尺度；不含航拍底图、手绘批注或原生 SU 截图。"
+            }
+          ],
+          "evidence_hashes": [
+            "e80314352e462dea5c86ad65e8191fc2b9ac98d13ed94d830167d6b76c876f37",
+            "02a5cb7dcb2907c5dadf192c2083c6fd926b5ac377769f4ffb60e799119a31cf",
+            "5ab3106b0ce5da0c01a30218aadf2a83b3f45fbdfdf42bc47a0bca5f5b61c35c"
+          ],
+          "user_acceptance": "basically_accepted_scoped",
+          "accepted_scope": "本城市路口 v05 前期平面整理基本通过；遮挡推定及相对尺度限制保留。",
+          "status_history": [
+            {
+              "stage": "v04",
+              "status": "superseded",
+              "reason": "该对象判断已被用户反馈或内部原图复核重开。"
+            },
+            {
+              "stage": "v05",
+              "status": "geometry_verified",
+              "reason": "修订及相应检查完成，用户本轮表示这一步基本通过；SU 未执行。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EF008",
+      "title": "图框接边、漏节点与伪闭合",
+      "tags": [
+        "图框",
+        "端点",
+        "开环",
+        "重边",
+        "T节点",
+        "交叉",
+        "规则几何",
+        "圆角",
+        "碎折线"
+      ],
+      "cause_key": "non_native_topology",
+      "remedy_key": "explicit_shared_endpoints",
+      "check_key": "raw_polygonize_before_repair",
+      "detail": "cases/EF008.md",
+      "rules": [
+        "cad-modules.md",
+        "acceptance.md",
+        "hierarchy-and-regular-geometry.md"
+      ],
+      "variants": [
+        {
+          "id": "EF008-A",
+          "condition_key": "raw_export_vs_repaired_graph",
+          "new_information": "历史真实失败包含 86 处未节点化交点及三组重复边；另有截边退化成点接框的失败和对应回归测试。",
+          "status": "historical_record",
+          "native_sketchup": "not_run",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-11",
+          "evidence_kind": "historical_record",
+          "figures": [],
+          "evidence_hashes": [],
+          "cause_key": "non_native_topology",
+          "remedy_key": "explicit_shared_endpoints",
+          "check_key": "raw_polygonize_before_repair"
+        },
+        {
+          "id": "EF008-B",
+          "condition_key": "regular_outline_in_oblique_aerial",
+          "cause_key": "pixel_tracing_over_regular_structure",
+          "remedy_key": "evidence_bounded_primitives_shared_junctions",
+          "check_key": "shape_budget_and_actual_face_mapping",
+          "new_information": "用户认可规则形体和有限航拍规整方法；后续封面仍失败。只归档方法，不把折线化或圆弧方案认定为SU修复成功。",
+          "status": "historical_record",
+          "user_acceptance": "method_only",
+          "native_sketchup": "not_run_by_agent",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-11",
+          "evidence_kind": "historical_record",
+          "figures": [],
+          "evidence_hashes": [
+            "36b4f118f576805e137a3302659b5d0b5b533662ddbb6c4d2c296f1faeb989ee",
+            "ff18dd47074a44ecf0cf306b3bcfdc05784ffda0cac327ae8aa906809c40d303"
+          ],
+          "method_acceptance": "confirmed",
+          "unresolved_scope": [
+            "native_face_creation",
+            "independent_push_pull"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EF009",
+      "title": "设计范围与成果版本混淆",
+      "tags": [
+        "设计范围",
+        "清空",
+        "选版",
+        "中间图",
+        "交付"
+      ],
+      "cause_key": "scope_as_detail_only",
+      "remedy_key": "explicit_version_contract",
+      "check_key": "scope_and_delivery_review",
+      "detail": "cases/EF009.md",
+      "rules": [
+        "design-scope.md",
+        "image-stage.md",
+        "cad-stage.md"
+      ],
+      "variants": [
+        {
+          "id": "EF009-A",
+          "condition_key": "clearing_and_version_selection",
+          "new_information": "第三个场景早期反馈促成范围/选版规则；随后用户取消 CAD 简图叠图。历史双叠图交付记录已过时，不能覆盖当前合同。",
+          "status": "historical_record",
+          "native_sketchup": "not_run",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-11",
+          "evidence_kind": "historical_record",
+          "figures": [],
+          "evidence_hashes": [],
+          "cause_key": "scope_as_detail_only",
+          "remedy_key": "explicit_version_contract",
+          "check_key": "scope_and_delivery_review"
+        }
+      ]
+    },
+    {
+      "id": "EF010",
+      "title": "尺度、配准和基底推定混淆",
+      "tags": [
+        "尺度",
+        "屋顶",
+        "倾斜",
+        "配准",
+        "像素",
+        "位移",
+        "原图优先",
+        "边界审核",
+        "生成图冲突",
+        "重复漏检",
+        "路缘",
+        "明显地物",
+        "河宽",
+        "道路宽度比",
+        "下游漂移",
+        "相对比例"
+      ],
+      "cause_key": "unsupported_scale_or_warp",
+      "remedy_key": "source_ground_and_transform",
+      "check_key": "independent_control_points",
+      "detail": "cases/EF010.md",
+      "rules": [
+        "project-contract.md",
+        "shared-rules.md"
+      ],
+      "variants": [
+        {
+          "id": "EF010-A",
+          "condition_key": "relative_units_and_registration",
+          "new_information": "各测试场景均记录相对单位和推定边界；本条用于防止迁移时把项目数值当通用参数，无新增修复成功声明。",
+          "status": "historical_record",
+          "native_sketchup": "not_run",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-11",
+          "evidence_kind": "historical_record",
+          "figures": [],
+          "evidence_hashes": [],
+          "cause_key": "unsupported_scale_or_warp",
+          "remedy_key": "source_ground_and_transform",
+          "check_key": "independent_control_points"
+        },
+        {
+          "id": "EF010-B",
+          "condition_key": "generated_analysis_overrides_original_kerbs_after_feedback",
+          "new_information": "城市路口原图边界被生成图的位置替代；用户指出出入后，返修又仅改善对生成图的轮廓一致性，形成连续漏检。重新开放道路与父块定位审核，原图独立观察重现旧版大范围错误。修正候选正在审查，不记为已获用户通过。",
+          "status": "geometry_verified",
+          "native_sketchup": "not_run",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-12",
+          "evidence_kind": "user_feedback_and_original_boundary_audit",
+          "figures": [],
+          "evidence_hashes": [
+            "b9ba7296e3883e62bc3b1d7eac8ccd58d0089807be09eb43c95cc7173e3b5338",
+            "f93d45581b79398ccb1a2672812786896a5ec040bd93bd3e550c0cc9b201cf06",
+            "c201241fe2bc9995c97a0537dccc783b1aee2cb31449e6473a17bc4d7d194669",
+            "02a5cb7dcb2907c5dadf192c2083c6fd926b5ac377769f4ffb60e799119a31cf",
+            "de29895fcb6c1e861ad2a1034c6b17a8e89f654f9c7959ea2124bbba48cebb80"
+          ],
+          "cause_key": "generated_geometry_used_as_location_authority",
+          "remedy_key": "original_kerb_first_blocking_outer_gate",
+          "check_key": "original_boundary_role_position_width_and_overlay",
+          "user_acceptance": "basically_accepted_scoped",
+          "superseded_scope": "v01/v02道路与父块位置认可及依赖细节的现状定位结论；不否认历史文件的拓扑检查事实",
+          "status_history": [
+            {
+              "stage": "user_basic_acceptance",
+              "date": "2026-09-12",
+              "previous_user_acceptance": "rejected_existing_road_boundaries; new_outer_candidate_pending",
+              "status": "geometry_verified",
+              "reason": "原图道路/父块外边界 v03 用户基本通过，v05 细节加入后原外边界回归通过；v01/v02 原图位置结论仍撤销。"
+            }
+          ],
+          "accepted_scope": "原图道路/父块外边界 v03 用户基本通过，v05 细节加入后原外边界回归通过；v01/v02 原图位置结论仍撤销。"
+        },
+        {
+          "id": "EF010-C",
+          "condition_key": "clear_reference_boundaries_without_measured_scale",
+          "cause_key": "generated_landmark_drift_and_relative_width_distortion",
+          "remedy_key": "source_coordinates_and_local_reference_width_ratio",
+          "check_key": "independent_bank_positions_sections_and_road_reference_ratios",
+          "new_information": "清楚河道上下游定位和道路相对宽度必须单独量测；无真实尺寸也不允许视觉加粗或用局部扭曲对齐。",
+          "status": "pending",
+          "native_sketchup": "not_run",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-14",
+          "evidence_kind": "user_feedback_and_source_raster_overlay",
+          "figures": [],
+          "evidence_hashes": [
+            "01eeca7debf1b4409cd29f9d05fa6e608314d4df8ccb14683e3a0b5c69abee9c",
+            "8425adfb53ea9e0420b078645223204f668133c318d82e419961ffafac0907bb",
+            "dcf8c21a2b20a56ab9fde3c825b81d7bb015d2b6c1813f8964f867136a3669f4"
+          ],
+          "user_acceptance": "pending"
+        }
+      ]
+    },
+    {
+      "id": "EF011",
+      "title": "冠幅或投影替代绿地地面边",
+      "tags": [
+        "绿地",
+        "花池",
+        "池壁",
+        "树冠",
+        "冠幅",
+        "楔形",
+        "尖端",
+        "狭窄段",
+        "遮挡",
+        "不规则花池",
+        "扭曲",
+        "尖钩",
+        "碎凹口",
+        "连续绿带",
+        "行道树"
+      ],
+      "cause_key": "canopy_projection_as_ground_boundary",
+      "remedy_key": "ground_edges_and_adjacent_continuation",
+      "check_key": "ground_edge_tip_and_occlusion_review",
+      "detail": "cases/EF011.md",
+      "rules": [
+        "shared-rules.md",
+        "site-detail-checks.md",
+        "acceptance.md"
+      ],
+      "variants": [
+        {
+          "id": "EF011-A",
+          "condition_key": "occluded_wedge_and_planting_strips",
+          "cause_key": "canopy_projection_as_ground_boundary",
+          "remedy_key": "ground_edges_and_adjacent_continuation",
+          "check_key": "ground_edge_tip_and_occlusion_review",
+          "new_information": "绿地尖端/可见地面边旧2项失败、新2项通过；面索引核对实际原生面。种植带另有视觉复核，遮挡边仍属推断。",
+          "status": "geometry_verified",
+          "user_acceptance": "pending",
+          "native_sketchup": "not_run",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-11",
+          "evidence_kind": "actual_geometry",
+          "figures": [
+            {
+              "path": "figures/green_ground_tip.png",
+              "sha256": "fe54b3389db132dc1aad057b357343990ff53276cd6c5929a5269f1c3cb5a528",
+              "bytes": 20472,
+              "kind": "actual_cad_before_after",
+              "before_sha256": "99f2d06389434aff5fe0341d66fe0590a2aa73ce2b7871e2d99b4ddeb2e55096",
+              "after_sha256": "30bad944669f57cd74f73467ee3cc93630b465c73e1ba72272d669fb545bbc90",
+              "caption": "实际旧 CAD 与新 DWG 回读线网的局部重绘；左右同裁剪、同尺度，不含底图。几何对照不证明遮挡边精确或 SU UI 已测试。"
+            }
+          ],
+          "evidence_hashes": [
+            "99f2d06389434aff5fe0341d66fe0590a2aa73ce2b7871e2d99b4ddeb2e55096",
+            "30bad944669f57cd74f73467ee3cc93630b465c73e1ba72272d669fb545bbc90"
+          ],
+          "status_history": [
+            {
+              "stage": "earlier_local_conclusion",
+              "status": "superseded",
+              "reason": "用户反馈重开相关对象与接边；外环和建筑保留已核验基线。"
+            },
+            {
+              "stage": "corrected_roundtrip",
+              "status": "geometry_verified",
+              "reason": "同一独立源侧采样检查复现旧失败并在新回读通过；用户验收 pending，SU UI not_run。"
+            }
+          ]
+        },
+        {
+          "id": "EF011-B",
+          "condition_key": "irregular_plaza_planter_with_occluded_edges",
+          "cause_key": "fragmented_candidate_splicing_distorts_planter",
+          "remedy_key": "rebuild_main_geometry_and_tangent_transitions",
+          "check_key": "original_anchors_widths_turns_and_frozen_neighbors",
+          "new_information": "不规则花池逐点拼接产生尖钩、锯齿凹口和无意义绿地共边；从地面锚点重构主轮廓，规整过渡并保持真实通道。",
+          "status": "geometry_verified",
+          "native_sketchup": "not_run",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-12",
+          "evidence_kind": "actual_geometry",
+          "figures": [
+            {
+              "path": "figures/planter_main_geometry.png",
+              "sha256": "1842923b9c5784615974073cdd899647ffd7cb671fb58ed0fa7cb71372aacca3",
+              "bytes": 15874,
+              "kind": "actual_cad_before_after",
+              "before_sha256": "e80314352e462dea5c86ad65e8191fc2b9ac98d13ed94d830167d6b76c876f37",
+              "after_sha256": "02a5cb7dcb2907c5dadf192c2083c6fd926b5ac377769f4ffb60e799119a31cf",
+              "caption": "实际旧 CAD 与修订 DWG 回读的局部重绘，同一范围和尺度；不含航拍底图、手绘批注或原生 SU 截图。"
+            }
+          ],
+          "evidence_hashes": [
+            "e80314352e462dea5c86ad65e8191fc2b9ac98d13ed94d830167d6b76c876f37",
+            "02a5cb7dcb2907c5dadf192c2083c6fd926b5ac377769f4ffb60e799119a31cf",
+            "5ab3106b0ce5da0c01a30218aadf2a83b3f45fbdfdf42bc47a0bca5f5b61c35c"
+          ],
+          "user_acceptance": "basically_accepted_scoped",
+          "accepted_scope": "本城市路口 v05 前期平面整理基本通过；遮挡推定及相对尺度限制保留。",
+          "status_history": [
+            {
+              "stage": "v04",
+              "status": "superseded",
+              "reason": "该对象判断已被用户反馈或内部原图复核重开。"
+            },
+            {
+              "stage": "v05",
+              "status": "geometry_verified",
+              "reason": "修订及相应检查完成，用户本轮表示这一步基本通过；SU 未执行。"
+            }
+          ]
+        },
+        {
+          "id": "EF011-C",
+          "condition_key": "paved_plaza_with_rows_of_tree_canopies",
+          "cause_key": "tree_row_inferred_as_continuous_ground_bed",
+          "remedy_key": "retain_paving_until_ground_bed_evidenced",
+          "check_key": "ground_contact_and_paving_connectivity",
+          "new_information": "铺装行道树的连续冠幅曾被连成假绿带；内部原图复核删除该带，不为每棵树或冠幅补造池壁。",
+          "status": "historical_record",
+          "native_sketchup": "not_run",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-12",
+          "evidence_kind": "project_review_record",
+          "figures": [],
+          "evidence_hashes": [
+            "e80314352e462dea5c86ad65e8191fc2b9ac98d13ed94d830167d6b76c876f37",
+            "02a5cb7dcb2907c5dadf192c2083c6fd926b5ac377769f4ffb60e799119a31cf",
+            "5ab3106b0ce5da0c01a30218aadf2a83b3f45fbdfdf42bc47a0bca5f5b61c35c",
+            "215aea0786786d41f1e09e6cc685424ee8e398ee58a096b092a1ccbf2b2921c4"
+          ],
+          "user_acceptance": "basically_accepted_scoped",
+          "accepted_scope": "本城市路口 v05 前期平面整理基本通过；遮挡推定及相对尺度限制保留。",
+          "status_history": [
+            {
+              "stage": "v04",
+              "status": "superseded",
+              "reason": "该对象判断已被用户反馈或内部原图复核重开。"
+            },
+            {
+              "stage": "v05",
+              "status": "historical_record",
+              "reason": "修订及相应检查完成，用户本轮表示这一步基本通过；SU 未执行。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EF012",
+      "title": "道路层级混淆与父块边界丢失",
+      "tags": [
+        "一级道路",
+        "围合块面",
+        "二三级道路",
+        "内路",
+        "全部合面",
+        "独立提取",
+        "复杂城市",
+        "城市片区",
+        "两步审查",
+        "结构稿",
+        "密集小建筑",
+        "低清晰度",
+        "模糊",
+        "乡村",
+        "园林",
+        "重构",
+        "退让",
+        "间距",
+        "近贴",
+        "保护距离",
+        "一次交付",
+        "按需分步",
+        "内部核验",
+        "片区最高优先级",
+        "三级路省略",
+        "建筑筛选",
+        "块面模式"
+      ],
+      "cause_key": "road_class_collapsed_into_one_surface",
+      "remedy_key": "primary_parent_internal_detail_order",
+      "check_key": "stage_invariants_and_same_different_faces",
+      "detail": "cases/EF012.md",
+      "rules": [
+        "hierarchy-and-regular-geometry.md",
+        "cad-modules.md",
+        "su-plan-contract.md",
+        "complex-urban-two-stage.md",
+        "low-clarity-reconstruction.md",
+        "low-clarity-case-lessons.md",
+        "district-priority.md"
+      ],
+      "variants": [
+        {
+          "id": "EF012-A",
+          "condition_key": "ring_enclosed_plaza_with_internal_route",
+          "cause_key": "road_class_collapsed_into_one_surface",
+          "remedy_key": "primary_parent_internal_detail_order",
+          "check_key": "stage_invariants_and_same_different_faces",
+          "new_information": "用户纠正全部道路合面做法，确认一级路→围合块面→内路→细节。归档方法与部分视觉认可，后续推拉联动未解决，不能当作整案成功。",
+          "status": "historical_record",
+          "user_acceptance": "partial_visual_only",
+          "native_sketchup": "not_run_by_agent",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-11",
+          "evidence_kind": "historical_record",
+          "figures": [],
+          "evidence_hashes": [
+            "36b4f118f576805e137a3302659b5d0b5b533662ddbb6c4d2c296f1faeb989ee",
+            "ff18dd47074a44ecf0cf306b3bcfdc05784ffda0cac327ae8aa906809c40d303"
+          ],
+          "method_acceptance": "confirmed",
+          "overall_result": "unresolved",
+          "accepted_scope": [
+            "hierarchical_construction_method",
+            "partial_visual_organization"
+          ],
+          "unresolved_scope": [
+            "native_face_creation",
+            "independent_push_pull"
+          ]
+        },
+        {
+          "id": "EF012-B",
+          "condition_key": "complex_urban_multiblock_dense_buildings",
+          "cause_key": "construction_order_without_review_stage",
+          "remedy_key": "structure_review_then_frozen_infill",
+          "check_key": "source_structure_and_stage_boundary_regression",
+          "new_information": "旧流程一次交付密集建筑全图；用户明确类似城市片区自动两步。增加独立结构模板及绑定基线的细化阶段；设计范围另行处理。方法已认可，新结构图尚待用户审查。 后续用户明确通过v06并要求下一步。第二步内置生成仍局部覆盖既有道路；中轴横路修复，南岸弯路两次修复未改善。全局颜色保留率高不能替代局部连通与边界检查。",
+          "status": "historical_record",
+          "native_sketchup": "not_run",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-13",
+          "evidence_kind": "user_feedback_and_prior_generated_image",
+          "method_acceptance": "confirmed",
+          "user_acceptance": "stage1_visual_accepted_stage2_pending",
+          "accepted_scope": "两步方法、层级保护规则，以及本次v06第一步结构图视觉审查",
+          "unresolved_scope": "第二步南岸弯路未保住基线、半岛局部岸线偏移；CAD及SU未执行",
+          "figures": [],
+          "evidence_hashes": [
+            "a9145fd9265046455b188cbec0d8d10d770b6dfcfba288339faf50a7f9144348",
+            "ea3f9e5d9dc0980b9932a139c27c29001ac11f417e1ada9b7506d5ec0e41c799",
+            "b4613e1025478812760892d7be5db5a1b31c2f17a5427b2d9e0237e9ecd58919"
+          ],
+          "review_policy_current": "internal_structure_then_detail; single_complete_delivery_default; staged_only_if_user_requested_or_unresolved_critical_structure",
+          "review_policy_history": [
+            {
+              "date": "2026-09-13",
+              "previous_default": "automatic_two_user_reviews",
+              "status": "superseded",
+              "reason": "用户明确取消复杂/低清晰度自动两次审查，保留内部层级检查及道路退让",
+              "method_acceptance": "confirmed",
+              "model_result": "not_changed_by_policy_update"
+            }
+          ]
+        },
+        {
+          "id": "EF012-C",
+          "condition_key": "low_clarity_any_scene_infill_near_roads",
+          "cause_key": "scene_limited_routing_and_missing_effective_clearance_budget",
+          "remedy_key": "frozen_structure_then_setback_constrained_reconstruction",
+          "check_key": "actual_clearance_and_road_face_exclusion_after_roundtrip",
+          "new_information": "用户将低清晰度分支扩展到所有类型；重构细节需有尺度地退让道路。旧实际SKP已发现道路混入建筑和绿地、共面重叠，不能把近贴确认为唯一原因；规则生效与新模型验收分开。 后续实际完成结构固定、组团概括、有效间距、异常主体局部规整及回读回归，用户认可整体结果；两处明显SU问题另有同类小内路缺失，后续直接按外环/内孔生成SU的902面回读逐项通过并获用户效果认可。不是全模型只剩两错，不把本例参数迁移。",
+          "status": "geometry_verified",
+          "method_acceptance": "confirmed",
+          "user_acceptance": "reconstructed_result_and_direct_su_result_accepted",
+          "native_sketchup": "revised_direct_file_readback_verified; plugin_result_failed_separately",
+          "overall_result": "case_reconstruction_and_direct_native_faces_verified",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-13",
+          "evidence_kind": "version_bound_cad_and_native_skp_checks_with_user_result_acceptance",
+          "figures": [],
+          "evidence_hashes": [
+            "bf7b448064cfc9bfa7843d29a0f64a8e959e0cb8943e8b754499f6f4822def4f",
+            "f13a2c9578e3a7f805a2fc642c1cec189b621e9a35eeab684249b116e25cd3a0",
+            "6fe07871971136015c2def0adc6b94bd3fe75b8091c81347c35dd674bac576db",
+            "cd245ea7d7a43d645df7d42d33bde9c8c2016a0da29169014188493ddaf3bde8",
+            "3416b341e0056bdc1ee76f7fe25958c5e1a343930b7c16d0f8247c039034593d"
+          ],
+          "accepted_scope": [
+            "all_scene_low_clarity_routing",
+            "road_and_block_priority",
+            "effective_detail_clearance_method",
+            "v02_reconstruction_result",
+            "direct_su_face_result"
+          ],
+          "unresolved_scope": [
+            "first_failing_step_in_third_party_pipeline",
+            "GUI_independent_edit_pushpull",
+            "transfer_to_unseen_scenes",
+            "future_user_refinements"
+          ],
+          "review_policy_current": "internal_structure_then_detail; single_complete_delivery_default; staged_only_if_user_requested_or_unresolved_critical_structure",
+          "review_policy_history": [
+            {
+              "date": "2026-09-13",
+              "previous_default": "automatic_two_user_reviews",
+              "status": "superseded",
+              "reason": "用户明确取消复杂/低清晰度自动两次审查，保留内部层级检查及道路退让",
+              "method_acceptance": "confirmed",
+              "model_result": "not_changed_by_policy_update"
+            }
+          ],
+          "status_history": [
+            {
+              "date": "2026-09-13",
+              "event": "initial_rule_record_before_reconstruction",
+              "state": {
+                "status": "historical_record",
+                "user_acceptance": "method_confirmed_new_model_not_run",
+                "native_sketchup": "prior_model_readonly_structural_failure_verified; revised_model_not_run",
+                "overall_result": "reconstruction_not_run",
+                "accepted_scope": [
+                  "all_scene_low_clarity_routing",
+                  "road_and_block_priority",
+                  "effective_detail_clearance_method"
+                ],
+                "unresolved_scope": [
+                  "project_clearance_calibration",
+                  "reconstructed_cad_and_skp_validation"
+                ]
+              },
+              "superseded_by": "same_case_v02_reconstruction_and_direct_su_validation"
+            },
+            {
+              "date": "2026-09-13",
+              "event": "same_case_verified_progress",
+              "status": "geometry_verified",
+              "user_acceptance": "result_and_method_accepted",
+              "native_UI_operations": "not_run",
+              "count_policy": "same case; occurrence_count unchanged"
+            }
+          ]
+        },
+        {
+          "id": "EF012-D",
+          "condition_key": "district_structure_excess_detail",
+          "cause_key": "detail_retention_overrides_district_structure",
+          "remedy_key": "primary_secondary_blocks_first_filter_objects",
+          "check_key": "visual_then_raw_cad_faces_and_mode_scope",
+          "new_information": "片区二维策略已获用户认可：完整父块及一二级路优先，三级路和小碎歪扭建筑默认省略，桥头细带前置清理；仅该模式生效。CAD/SU未测。",
+          "status": "historical_record",
+          "native_sketchup": "not_run",
+          "user_acceptance": "strategy_accepted",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-14",
+          "evidence_kind": "image_trial_and_user_strategy_acceptance",
+          "figures": [],
+          "evidence_hashes": []
+        }
+      ]
+    },
+    {
+      "id": "EF013",
+      "title": "道路标线被误建为实体岛与隔断",
+      "tags": [
+        "标线",
+        "导流线",
+        "小绿岛",
+        "三角岛",
+        "停车线",
+        "假路缘",
+        "道路连通"
+      ],
+      "cause_key": "pavement_markings_as_physical_objects",
+      "remedy_key": "remove_false_islands_restore_road",
+      "check_key": "source_curbs_and_local_road_continuity",
+      "detail": "cases/EF013.md",
+      "rules": [
+        "shared-rules.md",
+        "su-plan-contract.md"
+      ],
+      "variants": [
+        {
+          "id": "EF013-A",
+          "condition_key": "divided_urban_crossroads_with_corner_markings",
+          "new_information": "四角导流/等待区标线被生成成小绿岛与三角围边，广场底部停车标线被生成成白色隔断。局部删除伪实体并恢复连续路面；用户认可 v04 并授权按此转 CAD。",
+          "status": "geometry_verified",
+          "native_sketchup": "not_run",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-12",
+          "evidence_kind": "user_accepted_image_revision",
+          "figures": [],
+          "evidence_hashes": [
+            "33dd480a09794e6e794c2c6201ff83a1eb3111cfeaea60c9b8a9cf6008657ece",
+            "f93d45581b79398ccb1a2672812786896a5ec040bd93bd3e550c0cc9b201cf06",
+            "02a5cb7dcb2907c5dadf192c2083c6fd926b5ac377769f4ffb60e799119a31cf",
+            "61b17f21a9ecd8905913f198418c61891a2303fb8bb4fbce1b672c648bc3e02a"
+          ],
+          "cause_key": "pavement_markings_as_physical_objects",
+          "remedy_key": "remove_false_islands_restore_road",
+          "check_key": "source_curbs_and_local_road_continuity",
+          "user_acceptance": "basically_accepted_scoped",
+          "accepted_scope": "此前图像修正接受；本场景 v05 CAD 阶段基本通过，路口伪岛/封口未恢复；不代表其他路口都无实体岛。",
+          "unresolved_scope": "原图位置偏差另项；本条不证明CAD或SU验收通过",
+          "status_history": [
+            {
+              "stage": "user_basic_acceptance",
+              "date": "2026-09-12",
+              "previous_user_acceptance": "approved_image_revision",
+              "status": "geometry_verified",
+              "reason": "此前图像修正接受；本场景 v05 CAD 阶段基本通过，路口伪岛/封口未恢复；不代表其他路口都无实体岛。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

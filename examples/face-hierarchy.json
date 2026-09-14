@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "module": "outer",
+  "units": 0,
+  "frame": [0, 0, 100, 100],
+  "tolerances": {"coordinate": 1e-8, "area": 1e-6, "min_edge": 0.1, "min_clearance": 0.2},
+  "expected_road_components": 1,
+  "parents": [{"id": "P1", "handle": "REPLACE_WITH_PARENT_HANDLE", "clipped": false}],
+  "frame_handles": ["REPLACE_WITH_FRAME_LINE_HANDLES"],
+  "details": []
+}

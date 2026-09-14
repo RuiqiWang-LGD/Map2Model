@@ -1,0 +1,7 @@
+{
+  "min_vertices": 24,
+  "short_edge": 3,
+  "short_fraction": 0.35,
+  "axis_angle_degrees": 12,
+  "off_axis_fraction": 0.35
+}

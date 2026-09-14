@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "units": "relative",
+  "tolerance": 0.1,
+  "z_tolerance": 0.000001,
+  "layers": {
+    "building": ["building"],
+    "road": ["road"],
+    "frame": ["FRAME"],
+    "reference": ["reference", "grade", "road-edge"]
+  },
+  "required_layers": ["FRAME"],
+  "required_handles": [],
+  "forbidden_layers": [],
+  "baseline": null,
+  "frozen_handles": [],
+  "hole_map": {},
+  "control_points": [],
+  "road_connections": [],
+  "width_probes": [],
+  "required_reviews": ["stage_one", "cad_visual", "road_semantics"],
+  "review": {
+    "stage_one": {"status": "pending", "evidence": null, "dxf_sha256": null, "reviewer": null},
+    "cad_visual": {"status": "pending", "evidence": null, "dxf_sha256": null, "reviewer": null},
+    "road_semantics": {"status": "pending", "evidence": null, "dxf_sha256": null, "reviewer": null}
+  }
+}

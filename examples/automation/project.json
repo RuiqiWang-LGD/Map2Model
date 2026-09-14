@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "output_dir": "run",
+  "outer": {"recipe": "outer.json"},
+  "detail": {"recipe": "detail.json"},
+  "triage": {"config": "../building-triage.json"}
+}

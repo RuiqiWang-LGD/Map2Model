@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "width": 100,
+  "height": 100,
+  "units": 0,
+  "source": "Illustrative 100 by 100 relative-unit crop. Replace ALL observations and thresholds using this project's source evidence before use.",
+  "sources": [{"path": "REPLACE_WITH_SOURCE_PATH", "sha256": "REPLACE_WITH_ACTUAL_SHA256", "role": "original or explicitly selected analysis image"}],
+  "same_face_groups": {"primary_road": [[50, 10], [50, 90]], "west_block": [[10, 10], [10, 90]], "east_water": [[90, 10], [90, 90]]},
+  "distinct_groups": ["primary_road", "west_block", "east_water"],
+  "protected_regions": [{"id": "primary_road", "geometry": {"type": "Polygon", "coordinates": [[[40,0],[60,0],[60,100],[40,100],[40,0]]]}, "inset": 2, "evidence": "REPLACE with independent source observation; do not derive this polygon from candidate CAD"}],
+  "single_boundaries": [{"id": "water_side", "segment": [[55,50],[90,50]], "expected": 1}],
+  "width_probes": [{"id": "main_road_width", "point": [50,50], "segment": [[0,50],[100,50]], "expected": 20, "tolerance": 0.2, "evidence": "REPLACE with independent width measurement and units"}],
+  "boundary_sawtooth": {"short_length": 3, "consecutive_alternating_turns": 5, "minimum_boundary_edges": 8, "roles": ["ROAD", "BUILDING"]},
+  "minimum_face_area": 0.1,
+  "minimum_native_edge": 0.01,
+  "tolerance": 0.00001
+}

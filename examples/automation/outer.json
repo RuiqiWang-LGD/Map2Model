@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "module": "outer",
+  "units": 0,
+  "frame": [0, 0, 100, 100],
+  "tolerances": {"coordinate": 0.0000001, "area": 0.00001, "min_edge": 0.1, "min_clearance": 0.5},
+  "expected_road_components": 1,
+  "parents": [
+    {"id": "west", "clipped": true, "source": "Synthetic example: left block clipped by image frame.", "shape": {"points": [[0,10],[45,10],[45,90],[0,90]]}},
+    {"id": "east", "clipped": true, "source": "Synthetic example: right block clipped by image frame.", "shape": {"points": [[55,10],[100,10],[100,90],[55,90]]}}
+  ]
+}

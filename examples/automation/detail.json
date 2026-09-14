@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "module": "detail",
+  "operations": [
+    {"id": "west_green", "action": "add", "role": "GREEN", "parent": "west", "source": "Synthetic ground polygon: local clearance correction is allowed.", "shape": {"points": [[20,15],[42,15],[42,70],[20,70]]}},
+    {"id": "west_roof", "action": "add", "role": "BUILDING", "parent": "west", "source": "Synthetic regular roof extending into the old green candidate.", "shape": {"points": [[8,20],[22,20],[22,40],[8,40]]}},
+    {"id": "east_roof", "action": "add", "role": "BUILDING", "parent": "east", "source": "Synthetic L-shaped roof: retain both connected wings.", "shape": {"origin": [70,30], "angle_degrees": 12, "rectangles": [[0,0,12,5],[0,0,5,18]], "polygons": [], "subtract_rectangles": []}}
+  ],
+  "neighbor_fit": {"roles": ["GREEN"], "clearance": 0.6, "simplify": 0.05, "max_shift": 4, "max_area_change": 0.15}
+}

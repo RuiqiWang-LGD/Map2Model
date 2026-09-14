@@ -1,0 +1,4 @@
+interface:
+  display_name: "Map2CAD"
+  short_description: "影像转 CAD，或整理已有 CAD 并在 SU 中封面、识别道路水体绿地"
+  default_prompt: "使用 $map2cad，按我的场地图或已有 CAD 整理前期建模底图；需要 SU 时完成封面，并结合可用资料识别道路、水体和绿地。"

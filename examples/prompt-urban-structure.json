@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "source_image": "source.jpg",
+  "image_type": "satellite",
+  "review_stage": "urban_structure",
+  "output_variant": "existing_condition",
+  "output_scope": "原图完整范围",
+  "detail_level": "第一步，仅主要路网、河道桥梁和围合大块面；内部中性留白",
+  "keep": [
+    "主要道路占地与必要连接",
+    "划分主要街坊的道路",
+    "真实水陆边界与桥面",
+    "父块外边界"
+  ],
+  "omit": [
+    "建筑及屋面",
+    "内部花池步道与庭院",
+    "树冠、车辆、道路标线"
+  ],
+  "modules": [],
+  "scale": {
+    "status": "relative"
+  },
+  "notes": [
+    "本示例仅在当前用户明确要求先看结构、分步审查时使用；普通复杂或低清晰度任务采用 complete。"
+  ]
+}
