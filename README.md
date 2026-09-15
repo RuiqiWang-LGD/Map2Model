@@ -35,6 +35,7 @@ Map2Model 是一个面向建筑、景观与规划设计师的 AI Skill，目的�
 ## 如何下载 Download
 
 点击本页面的 **Code → Download ZIP**，下载仓库文件。
+也可以单独查看：[Map2Model 安装指引](./Map2Model_安装指引.docx)。
 
 ## 如何安装 Installation
 
