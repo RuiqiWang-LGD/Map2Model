@@ -17,7 +17,7 @@ MODULES = ROOT / "prompts" / "scene-modules.json"
 START_MARKER = "【输入与可选项目条件】"
 END_MARKER = "【一、按输入类型处理】"
 
-SPEC = importlib.util.spec_from_file_location("map2cad_build_prompt", SCRIPT)
+SPEC = importlib.util.spec_from_file_location("map2model_build_prompt", SCRIPT)
 BUILD_PROMPT = importlib.util.module_from_spec(SPEC)
 assert SPEC.loader is not None
 SPEC.loader.exec_module(BUILD_PROMPT)

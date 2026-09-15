@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a complete Map2CAD image-stage prompt from validated project facts."""
+"""Build a complete Map2Model image-stage prompt from validated project facts."""
 
 from __future__ import annotations
 
@@ -440,7 +440,7 @@ def write_new_pair(prompt_path: Path, prompt_data: bytes, metadata_path: Path, m
 
 
 def make_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="从项目条件快速生成完整、可复制的 Map2CAD 简化二维图提示词。")
+    parser = argparse.ArgumentParser(description="从项目条件快速生成完整、可复制的 Map2Model 简化二维图提示词。")
     parser.add_argument("--input", type=Path, help="提示词项目 JSON")
     parser.add_argument("--output", type=Path, help="输出完整提示词文本")
     parser.add_argument("--list-modules", action="store_true", help="列出可用场景模块后退出")

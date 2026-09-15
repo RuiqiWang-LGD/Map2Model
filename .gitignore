@@ -10,4 +10,7 @@ process/
 *.dwl
 *.dwl2
 
+.map2model-work/
+
+# Existing projects created before the rename
 .map2cad-work/

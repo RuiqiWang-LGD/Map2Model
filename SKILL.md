@@ -1,16 +1,16 @@
 ---
 
-name: map2cad
+name: map2model
 
 description: Create editable CAD bases from site imagery, or clean existing CAD and generate editable SketchUp faces, using optional satellite imagery to help classify roads, water, greenery, and buildings. 适用于卫星图、航拍图或简化图转 CAD，以及已有 CAD 修线、SU 封面、分区分类和局部修正。
 
 metadata:
 
-  version: "0.9.7"
+  version: "0.9.8"
 
 ---
 
-# Map2CAD
+# Map2Model
 
 让设计师从一张资料有限的场地图，尽快进入可编辑、可分面、可推拉的前期建模状态。承担描路、描河、整理地块与建筑、修线成面的重复工作。交付的是前期建模底图；不把单幅影像中的推定基底、路段或高差说成测绘成果。
 

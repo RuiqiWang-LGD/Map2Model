@@ -1,4 +1,4 @@
-# Map2CAD optional DWG export. Uses an existing licensed AutoCAD Core Console.
+# Map2Model optional DWG export. Uses an existing licensed AutoCAD Core Console.
 # Saves R2018, reopens actual DWG and exports DXF. Run compare_dxf.py afterward.
 [CmdletBinding()]
 param(
@@ -137,7 +137,7 @@ $roundTripFull = [System.IO.Path]::GetFullPath($RoundTripDxf)
 
 New-Item -ItemType Directory -Force -Path (Split-Path -Parent $outputFull), (Split-Path -Parent $roundTripFull) | Out-Null
 
-$stagingRoot = Join-Path ([System.IO.Path]::GetTempPath()) 'map2cad_dwg_staging'
+$stagingRoot = Join-Path ([System.IO.Path]::GetTempPath()) 'map2model_dwg_staging'
 if ($stagingRoot -match '[^\x00-\x7F]') { throw 'Core Console script staging needs an ASCII TEMP path; configure TEMP for this process only.' }
 New-Item -ItemType Directory -Force -Path $stagingRoot | Out-Null
 $jobDirectory = Join-Path $stagingRoot ("job_" + [Guid]::NewGuid().ToString('N'))
