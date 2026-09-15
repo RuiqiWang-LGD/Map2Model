@@ -58,7 +58,7 @@ python "<Skill绝对目录>/scripts/cad_pipeline.py" work/project.json --resume
 | `triage` | `{"config":"building-triage.json"}`；对最终实际 DXF 筛选候选，不代表视觉通过 |
 | `review` | `{"source":"original.jpg","transform":"transform.json"}`，可加 `before_dxf` 和 `selection` 文件；默认以内部构造前的自动检查点作对比，输出最终叠图与复核页 |
 
-`review.source` 只配置原始卫星/正射影像，叠图使用最终回读 DXF。缺原始影像则省略 review 并报告待补，不用分析图触发默认 original 标签。所有自动输出留过程目录，验证后仅将所请求的 DWG/SKP 和有效成果图片分别复制到交付项目的“成果”和“其他”；不补做二维简图叠图。复核页可以是原图/旧 CAD/新 CAD 的内部对比，不作为额外交付。
+`review.source` 只配置原始卫星/正射影像，叠图使用最终回读 DXF。先按 [资料角色规则](source-roles.md) 判断适用性：影像为几何来源时，缺影像或可信配准则省略 review 并说明该项未完成；CAD／独立平面为主且影像只辅助时，无影像或可信配准可省略 review，不列为成果缺项，另对主底图独立核验。不要用分析图或未经核验的大致参考变换触发默认 original 定位复核；大致参考叠图须另外明确标注。所有自动输出留过程目录，验证后仅将所请求的 DWG/SKP 和有效成果图片分别复制到交付项目的“成果”和“其他”；不补做二维简图叠图。复核页可以是原图/旧 CAD/新 CAD 的内部对比，不作为额外交付。
 
 未配置转换器时只返回 DXF，`dwg` 为 null，不能改后缀冒充。转换需要现有合法可用的 Windows AutoCAD Core Console，工具不负责安装。最终候选清单和复核图绑定转换回读后的 DXF；不同文件版本不能仅凭 ID 相同混用检查记录。
 
