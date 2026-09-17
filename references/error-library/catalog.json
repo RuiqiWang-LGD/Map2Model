@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "library_version": "0.8.1",
+  "library_version": "0.8.3",
   "families": [
     {
       "id": "EF001",
@@ -378,7 +378,13 @@
         "地面纹样",
         "星形",
         "亭棚",
-        "运动场"
+        "运动场",
+        "详图",
+        "整块省略",
+        "小组团",
+        "灰条侵入",
+        "临路留距",
+        "保留基本形态"
       ],
       "cause_key": "roof_ground_confusion",
       "remedy_key": "source_axis_rebuild",
@@ -386,7 +392,9 @@
       "detail": "cases/EF005.md",
       "rules": [
         "building-regularization.md",
-        "acceptance.md"
+        "acceptance.md",
+        "processing-modes.md",
+        "shared-rules.md"
       ],
       "variants": [
         {
@@ -540,6 +548,80 @@
               "stage": "v05",
               "status": "historical_record",
               "reason": "修订及相应检查完成，用户本轮表示这一步基本通过；SU 未执行。"
+            }
+          ]
+        },
+        {
+          "id": "EF005-F",
+          "condition_key": "legible_buildings_with_local_fragments_in_site_detail",
+          "cause_key": "legible_footprints_lost_or_pixel_fragments_overpreserved",
+          "remedy_key": "retain_basic_forms_regularize_small_groups_with_road_clearance",
+          "check_key": "source_building_coverage_contours_and_road_gap_regression",
+          "new_information": "详图中保留可辨建筑基本形态，并按单体或紧密小组团概括碎边；修订图像获认可，不按整街坊抹除。",
+          "status": "historical_record",
+          "native_sketchup": "not_run",
+          "geometry_validation": "not_run",
+          "image_review": "visual_only",
+          "user_acceptance": "accepted_image_revision",
+          "accepted_scope": "二维建筑保形、小范围规整与指定灰条用途简化；不证明整图CAD可用或未核验位置精度",
+          "unresolved_scope": "CAD完整线网、真实尺度、原生SU分面与独立编辑未执行",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-17",
+          "evidence_kind": "user_feedback_and_accepted_generated_image_revision",
+          "figures": [],
+          "evidence_hashes": [
+            "f5764fc58040c6a764c463bae6a8f4c71be53058aa2efbc5d04334fd38adcb51",
+            "0f758d4bdff588a33ec784e5296b25da3e96029fa7fd2f48971ce27b1f1be1e2",
+            "6fecfeac43e614e5e7240a1735a3cfbf7e60740d8e86a27eb8c86307c2c4601d"
+          ],
+          "status_history": [
+            {
+              "stage": "before_revision",
+              "status": "superseded",
+              "reason": "删楼、碎边或指定灰条问题已被用户重开"
+            },
+            {
+              "stage": "accepted_image_revision",
+              "date": "2026-09-17",
+              "status": "historical_record",
+              "reason": "用户认可修订并授权更新Skill；仅二维图像阶段"
+            }
+          ]
+        },
+        {
+          "id": "EF005-G",
+          "condition_key": "authorized_simplification_of_embedded_building_strip",
+          "cause_key": "gray_strip_makes_building_road_boundary_ambiguous",
+          "remedy_key": "classify_then_absorb_only_authorized_minor_strip",
+          "check_key": "building_interior_clear_and_external_access_regression",
+          "new_information": "用户授权将指定楼内灰条按建筑整体范围概括；保留外部主路，记录用途简化而非现场道路不存在。",
+          "status": "historical_record",
+          "native_sketchup": "not_run",
+          "geometry_validation": "not_run",
+          "image_review": "visual_only",
+          "user_acceptance": "accepted_image_revision",
+          "accepted_scope": "二维建筑保形、小范围规整与指定灰条用途简化；不证明整图CAD可用或未核验位置精度",
+          "unresolved_scope": "CAD完整线网、真实尺度、原生SU分面与独立编辑未执行",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-17",
+          "evidence_kind": "user_feedback_and_accepted_generated_image_revision",
+          "figures": [],
+          "evidence_hashes": [
+            "f5764fc58040c6a764c463bae6a8f4c71be53058aa2efbc5d04334fd38adcb51",
+            "0f758d4bdff588a33ec784e5296b25da3e96029fa7fd2f48971ce27b1f1be1e2",
+            "6fecfeac43e614e5e7240a1735a3cfbf7e60740d8e86a27eb8c86307c2c4601d"
+          ],
+          "status_history": [
+            {
+              "stage": "before_revision",
+              "status": "superseded",
+              "reason": "删楼、碎边或指定灰条问题已被用户重开"
+            },
+            {
+              "stage": "accepted_image_revision",
+              "date": "2026-09-17",
+              "status": "historical_record",
+              "reason": "用户认可修订并授权更新Skill；仅二维图像阶段"
             }
           ]
         }
@@ -703,7 +785,12 @@
         "交叉",
         "规则几何",
         "圆角",
-        "碎折线"
+        "碎折线",
+        "断路",
+        "错位",
+        "波折",
+        "清空裁切",
+        "图框尖角"
       ],
       "cause_key": "non_native_topology",
       "remedy_key": "explicit_shared_endpoints",
@@ -752,6 +839,47 @@
           "unresolved_scope": [
             "native_face_creation",
             "independent_push_pull"
+          ]
+        },
+        {
+          "id": "EF008-C",
+          "condition_key": "cleared_site_shared_perimeter_and_frame",
+          "cause_key": "independent_road_segments_and_scope_clipping",
+          "remedy_key": "shared_smooth_road_boundary_and_full_width_frame_join",
+          "check_key": "local_connectivity_width_frame_and_neighbor_regression",
+          "new_information": "二维清空范围裁切可制造外围断路、波折、无用途路头和接框楔形；新增道路与范围共享边界、局部平顺化、非零完整宽度接框及邻近建筑回归。",
+          "status": "geometry_verified",
+          "verification_scope": "2d_source_vectors_only",
+          "native_sketchup": "not_run",
+          "user_acceptance": "pending",
+          "method_acceptance": "confirmed",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-17",
+          "evidence_kind": "actual_2d_vector_geometry",
+          "figures": [
+            {
+              "path": "figures/road_scope_joins_before_after.png",
+              "sha256": "e5ab26759bdd386091737b88d6b12e1e492047b94301d2566aeac7efd7872c04",
+              "bytes": 140977,
+              "kind": "actual_2d_vector_before_after",
+              "before_sha256": "34e181384d3f22e51e6fba469e3c5eb5d8b5d183d187e621976a5d3267ddfe9f",
+              "after_sha256": "9b12d552f30fdc3834300deb234acc5cfbd4acf5e05ed605e17db62efdf3ccce",
+              "caption": "实际二维源矢量预览局部，前后相同范围与尺度；不含卫星原图或用户批注，不是 CAD/SU 验收。"
+            },
+            {
+              "path": "figures/road_scope_waves_before_after.png",
+              "sha256": "b8e30a57f193c31623535cbf3449f1f4af6e676e9fbe4ec9f11ed043896e2808",
+              "bytes": 29212,
+              "kind": "actual_2d_vector_before_after",
+              "before_sha256": "34e181384d3f22e51e6fba469e3c5eb5d8b5d183d187e621976a5d3267ddfe9f",
+              "after_sha256": "9b12d552f30fdc3834300deb234acc5cfbd4acf5e05ed605e17db62efdf3ccce",
+              "caption": "实际二维源矢量预览局部，前后相同范围与尺度；不含卫星原图或用户批注，不是 CAD/SU 验收。"
+            }
+          ],
+          "evidence_hashes": [
+            "34e181384d3f22e51e6fba469e3c5eb5d8b5d183d187e621976a5d3267ddfe9f",
+            "9b12d552f30fdc3834300deb234acc5cfbd4acf5e05ed605e17db62efdf3ccce",
+            "9dd982a71dafb182356268fbff81e9281d5840198310d12ab169c82feaca6234"
           ]
         }
       ]
@@ -1300,6 +1428,51 @@
               "reason": "此前图像修正接受；本场景 v05 CAD 阶段基本通过，路口伪岛/封口未恢复；不代表其他路口都无实体岛。"
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "EF014",
+      "title": "SU 默认视图与显示偏好遗漏",
+      "tags": [
+        "SU",
+        "默认样式",
+        "顶视图",
+        "毫米",
+        "轮廓线",
+        "Profiles",
+        "使用阳光",
+        "明暗面"
+      ],
+      "cause_key": "geometry_only_delivery_omits_display_preferences",
+      "remedy_key": "apply_explicit_local_su_display_preferences",
+      "check_key": "save_reopen_native_options_and_camera",
+      "detail": "cases/EF014.md",
+      "rules": [
+        "su-delivery-defaults.md",
+        "existing-cad-to-su.md"
+      ],
+      "variants": [
+        {
+          "id": "EF014-A",
+          "condition_key": "native_plan_delivery_display_defaults",
+          "cause_key": "geometry_only_delivery_omits_display_preferences",
+          "remedy_key": "apply_explicit_local_su_display_preferences",
+          "check_key": "save_reopen_native_options_and_camera",
+          "new_information": "用户认可平行顶视和毫米，要求默认关闭粗轮廓、开启使用阳光；原交付值true/false，工作副本保存回读false/true。未读取用户未保存的面板改动。",
+          "status": "historical_record",
+          "native_sketchup": "saved_display_options_verified",
+          "user_acceptance": "top_view_accepted_and_preferences_explicit",
+          "occurrence_count": 1,
+          "last_seen": "2026-09-17",
+          "evidence_kind": "native_option_before_after_and_user_preference",
+          "figures": [],
+          "evidence_hashes": [
+            "02ac5250b1836c0ead40facbc36e52c98c5c3eff75465f953621f18b30a4521c",
+            "6d95dda59f9f225861fdd0d5b1ed5290946edf43dfd021604f3a04dc30c7aad4"
+          ],
+          "geometry_status": "not_a_geometry_repair",
+          "gui_status": "not_run"
         }
       ]
     }
