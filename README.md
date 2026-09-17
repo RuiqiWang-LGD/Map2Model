@@ -1,4 +1,4 @@
-<img width="3508" height="3508" alt="头像" src="https://github.com/user-attachments/assets/753fcbda-d345-4d5c-bfae-8f2f2b814a09" />
+<img width="2480" height="3307" alt="3-4模版 拷贝" src="https://github.com/user-attachments/assets/787f4cba-82b8-4bc1-9b18-b9f525b3d708" />
 
 # Map2Model 产品简介
 
