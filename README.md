@@ -1,5 +1,3 @@
-<img width="827" height="1103" alt="3-4模版 拷贝" src="https://github.com/user-attachments/assets/787f4cba-82b8-4bc1-9b18-b9f525b3d708" />
-
 # Map2Model 产品简介
 
 Map2Model 是一个面向建筑、景观与规划设计师的 AI Skill，目的是让设计师从一张资料有限的场地图，尽快进入可编辑、可分面、可推拉的前期建模状态。缺少 CAD 和完整测绘资料时，设计师常要先对卫星图或航拍图描路、描河、描地块、整理建筑，再导入 SketchUp（SU）修线成面。这些重复、疲劳、耗时的工作，是本 Skill 要直接承担的部分。
