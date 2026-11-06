@@ -23,7 +23,28 @@
   让你更快进入可编辑、可分面、可推拉的前期建模状态。
 </p>
 
-<p align="center"><a href="#quick-start"><strong>快速开始</strong></a> · <a href="#how-it-works"><strong>工作方式</strong></a> · <a href="#installation"><strong>安装指南</strong></a> · <a href="#limitations"><strong>使用边界</strong></a></p>
+<p align="center"><a href="#workflow-demo"><strong>动画演示</strong></a> · <a href="#quick-start"><strong>快速开始</strong></a> · <a href="#how-it-works"><strong>工作方式</strong></a> · <a href="#installation"><strong>安装指南</strong></a> · <a href="#limitations"><strong>使用边界</strong></a></p>
+
+---
+
+<a id="workflow-demo"></a>
+
+## Map2Model 工作流程演示
+
+<p align="center">
+  <strong>卫星／航拍图 → 二维平面 → CAD → SketchUp → 分层分析</strong>
+</p>
+
+<p align="center">
+  <a href="assets/demo/map2model-demo.mp4">
+    <img src="assets/demo/map2model-demo.gif" alt="Map2Model 演示：原始影像、二维平面、可编辑 CAD、SketchUp 分面与动态分层分析" width="960">
+  </a>
+</p>
+
+<p align="center">
+  <a href="assets/demo/map2model-demo.mp4"><strong>播放带音效的完整视频 →</strong></a><br>
+  <sub>完整视频：14.4 秒 · 1080p · 60 帧</sub>
+</p>
 
 ---
 
@@ -31,8 +52,8 @@
 
 | 影像转 CAD | 已有 CAD 整理 | SketchUp 封面 |
 | --- | --- | --- |
-| 从卫星图、航拍图提取场地结构 | 检查断线、重线与闭合关系 | 形成可编辑、可分区的面组 |
-| 影像 → 建模底图 | CAD → 可用线网 | 线网 → 可编辑分面 |
+| 先整理二维平面，再构造 CAD 线网 | 检查断线、重线与闭合关系 | 形成可编辑、可分区的面组 |
+| 影像 → 二维平面 → CAD | CAD → 可用线网 | 线网 → 可编辑分面 |
 
 ---
 

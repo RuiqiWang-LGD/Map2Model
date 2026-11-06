@@ -23,16 +23,37 @@
   Move from source material to editable CAD bases and SketchUp faces.
 </p>
 
-<p align="center"><a href="#quick-start"><strong>Quick Start</strong></a> · <a href="#how-it-works"><strong>How It Works</strong></a> · <a href="#installation"><strong>Installation</strong></a> · <a href="#limitations"><strong>Limitations</strong></a></p>
+<p align="center"><a href="#workflow-demo"><strong>Demo</strong></a> · <a href="#quick-start"><strong>Quick Start</strong></a> · <a href="#how-it-works"><strong>How It Works</strong></a> · <a href="#installation"><strong>Installation</strong></a> · <a href="#limitations"><strong>Limitations</strong></a></p>
+
+---
+
+<a id="workflow-demo"></a>
+
+## See Map2Model in action
+
+<p align="center">
+  <strong>Site imagery → 2D plan → CAD → SketchUp → Exploded analysis</strong>
+</p>
+
+<p align="center">
+  <a href="assets/demo/map2model-demo.mp4">
+    <img src="assets/demo/map2model-demo.gif" alt="Map2Model workflow: source imagery, 2D plan, editable CAD, SketchUp faces and animated layer analysis" width="960">
+  </a>
+</p>
+
+<p align="center">
+  <a href="assets/demo/map2model-demo.mp4"><strong>Watch with sound →</strong></a><br>
+  <sub>Full video: 14.4 seconds · 1080p · 60 fps</sub>
+</p>
 
 ---
 
 ## From source material to design geometry
 
-| Image to CAD | CAD cleanup | SketchUp faces |
+| Imagery to CAD | CAD cleanup | SketchUp faces |
 | --- | --- | --- |
-| Extract site structure from imagery | Check gaps, overlaps and closed loops | Organize editable faces by area |
-| Imagery → CAD base | CAD → Clean linework | Linework → Editable faces |
+| Prepare a 2D plan, then editable CAD | Check gaps, overlaps and closed loops | Organize editable faces by area |
+| Imagery → 2D plan → CAD | CAD → Clean linework | Linework → Editable faces |
 
 ---
 
